@@ -1,3 +1,3 @@
-<ul *ngFor="let todo of todos"> <!--For each onto our 3 hard coded todos-->
-    <li>{{ todo.title }}</li>
-</ul>
+<app-todo-item *ngFor="let todo of todos" [todo]="todo">
+    <!--For each onto our 3 hard coded todos-->
+</app-todo-item>
