@@ -4,6 +4,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'; // to use this, 
 
 import { Todo } from '../models/Todo';
 
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'
+  })
+}
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +19,21 @@ export class TodoService {
 
   constructor(private http: HttpClient) { }
 
+  // Get Todos
   getTodos(): Observable<Todo[]> {
     return this.http.get<Todo[]>(`${this.todosUrl}${this.todosLimit}`);
   }
+
+  // Delete Todo
+  deleteTodo(todo: Todo): Observable<Todo> {
+    const url = `${this.todosUrl}/${todo.id}`;
+    return this.http.delete<Todo>(url, httpOptions);
+  }
+
+  // Toggle Completed - use put request to update server
+  toggleCompleted(todo: Todo): Observable<any> {
+    const url = `${this.todosUrl}/${todo.id}`;
+    return this.http.put(url, todo, httpOptions);
+  }
+
 }
