@@ -1,5 +1,5 @@
 .del {
-    background: #ff0000;
+    background: #FB8B8A;
     color: #fff;
     border: none;
     padding: 5px 9px;
@@ -9,10 +9,13 @@
 }
 
 .todo {
-    background: #f4f4f4;
+    background: rgb(255, 255, 255);
     padding: 10px;
     border-bottom: 1px #ccc dotted;
+    /* max-width: 600px; */
+
 }
+
 
 .is-complete {
     text-decoration: line-through;
